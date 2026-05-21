@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Train Ticket Booking</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f0f4f8;
+    }
+
+    .navbar{
+      background:#0d47a1;
+      color:white;
+      padding:15px;
+      text-align:center;
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .container{
+      width:90%;
+      max-width:500px;
+      margin:40px auto;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+      text-align:center;
+      margin-bottom:25px;
+      color:#0d47a1;
+    }
+
+    .form-group{
+      margin-bottom:18px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:6px;
+      font-weight:bold;
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+      font-size:16px;
+    }
+
+    .btn{
+      width:100%;
+      padding:12px;
+      background:#0d47a1;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#1565c0;
+    }
+
+    .ticket{
+      margin-top:30px;
+      padding:20px;
+      background:#e3f2fd;
+      border-radius:10px;
+      display:none;
+    }
+
+    .ticket h3{
+      color:#0d47a1;
+      margin-bottom:15px;
+    }
+
+    .ticket p{
+      margin:8px 0;
+      font-size:16px;
+    }
+
+    footer{
+      text-align:center;
+      margin-top:30px;
+      padding:15px;
+      background:#0d47a1;
+      color:white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    Train Ticket Booking System
+  </div>
+
+  <div class="container">
+
+    <h2>Book Your Ticket</h2>
+
+    <form id="bookingForm">
+
+      <div class="form-group">
+        <label>Passenger Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>From</label>
+        <input type="text" id="from" required>
+      </div>
+
+      <div class="form-group">
+        <label>To</label>
+        <input type="text" id="to" required>
+      </div>
+
+      <div class="form-group">
+        <label>Journey Date</label>
+        <input type="date" id="date" required>
+      </div>
+
+      <div class="form-group">
+        <label>Class</label>
+        <select id="class">
+          <option>Sleeper</option>
+          <option>AC</option>
+          <option>First Class</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Number of Tickets</label>
+        <input type="number" id="tickets" min="1" max="10" required>
+      </div>
+
+      <button type="submit" class="btn">Book Ticket</button>
+
+    </form>
+
+    <div class="ticket" id="ticket">
+      <h3>Ticket Confirmed 🎉</h3>
+
+      <p><strong>Name:</strong> <span id="tName"></span></p>
+      <p><strong>From:</strong> <span id="tFrom"></span></p>
+      <p><strong>To:</strong> <span id="tTo"></span></p>
+      <p><strong>Date:</strong> <span id="tDate"></span></p>
+      <p><strong>Class:</strong> <span id="tClass"></span></p>
+      <p><strong>Tickets:</strong> <span id="tTickets"></span></p>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Train Booking Application
+  </footer>
+
+  <script>
+
+    document.getElementById("bookingForm").addEventListener("submit", function(event){
+
+      event.preventDefault();
+
+      document.getElementById("tName").innerText =
+        document.getElementById("name").value;
+
+      document.getElementById("tFrom").innerText =
+        document.getElementById("from").value;
+
+      document.getElementById("tTo").innerText =
+        document.getElementById("to").value;
+
+      document.getElementById("tDate").innerText =
+        document.getElementById("date").value;
+
+      document.getElementById("tClass").innerText =
+        document.getElementById("class").value;
+
+      document.getElementById("tTickets").innerText =
+        document.getElementById("tickets").value;
+
+      document.getElementById("ticket").style.display = "block";
+
+    });
+
+  </script>
+
+</body>
+</html>
